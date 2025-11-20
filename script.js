@@ -3,18 +3,17 @@ document.addEventListener('DOMContentLoaded', function() {
   // --- nav menu moved from HTML into a template literal ---
   const navMenuTemplate = `
     <li><a href="/" class="nav-link">Inicio</a></li>
-    <li><a href="clid.html" class="nav-link">La CLID</a></li>
+    <li><a href="laclid.html" class="nav-link">La CLID</a></li>
     <li><a href="foco.html" class="nav-link">Foco</a></li>
-    <li><a href="foco.html" class="nav-link">Filosofia</a></li>
     <li><a href="genesis.html" class="nav-link">Genesis</a></li>
     <li><a href="funciones.html" class="nav-link">Funciones</a></li>
-    <li><a href="objetivos.html" class="nav-link">Objetivos</a></li>
     <li><a href="innovaula.html" class="nav-link">Innov@ula</a></li>
-    <li><a href="retos.html" class="nav-link">Retos</a></li>
     <li><a href="fundadoras.html" class="nav-link">Fundadoras</a></li>
-    <li><a href="eventos.html" class="nav-link">Eventos</a></li>
-    <li><a href="contacto.html" class="nav-link contact-link">Contacto</a></li>
+    <li><a href="#" class="nav-link contact-link">Contacto</a></li>
   `;
+  // 6. <li><a href="objetivos.html" class="nav-link">Objetivos</a></li>
+  // 8. <li><a href="retos.html" class="nav-link">Retos</a></li>
+  // 10. <li><a href="eventos.html" class="nav-link">Eventos</a></li>
   const navMenuEl = document.querySelector('#nav-menu');
   if (navMenuEl) navMenuEl.innerHTML = navMenuTemplate;
   // --- end nav injection ---
