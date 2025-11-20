@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   // --- nav menu moved from HTML into a template literal ---
   const navMenuTemplate = `
-    <li><a href="/" class="nav-link">Inicio</a></li>
+    <li><a href="index.html" class="nav-link">Inicio</a></li>
     <li><a href="laclid.html" class="nav-link">La CLID</a></li>
     <li><a href="foco.html" class="nav-link">Foco</a></li>
     <li><a href="genesis.html" class="nav-link">Genesis</a></li>
