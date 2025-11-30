@@ -1,5 +1,5 @@
 // Interactive functionality for the homepage
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // --- nav menu moved from HTML into a template literal ---
   const navMenuTemplate = `
     <li><a href="index.html" class="nav-link">Inicio</a></li>
@@ -9,48 +9,95 @@ document.addEventListener('DOMContentLoaded', function() {
     <li><a href="funciones.html" class="nav-link">Funciones</a></li>
     <li><a href="innovaula.html" class="nav-link">Innov@ula</a></li>
     <li><a href="fundadoras.html" class="nav-link">Fundadoras</a></li>
+    <li><a href="eventos.html" class="nav-link">Eventos</a></li>
     <li><a href="#" class="nav-link contact-link">Contacto</a></li>
   `;
   // 6. <li><a href="objetivos.html" class="nav-link">Objetivos</a></li>
   // 8. <li><a href="retos.html" class="nav-link">Retos</a></li>
-  // 10. <li><a href="eventos.html" class="nav-link">Eventos</a></li>
   const navMenuEl = document.querySelector('#nav-menu');
   if (navMenuEl) navMenuEl.innerHTML = navMenuTemplate;
-  // --- end nav injection ---
+
+  // --- Mobile Menu Toggle ---
+  const navigation = document.querySelector('.navigation');
+  if (navigation) {
+    // Create mobile menu toggle button
+    const mobileToggle = document.createElement('button');
+    mobileToggle.className = 'mobile-menu-toggle';
+    mobileToggle.setAttribute('aria-label', 'Toggle menu');
+    mobileToggle.innerHTML = `
+      <span></span>
+      <span></span>
+      <span></span>
+    `;
+
+    // Insert toggle button before nav menu
+    const navMenu = document.querySelector('.nav-menu');
+    if (navMenu) {
+      navigation.appendChild(mobileToggle);
+
+      // Toggle menu on button click
+      mobileToggle.addEventListener('click', function () {
+        this.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+      });
+
+      // Close menu when clicking on a link
+      const navLinks = navMenu.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+          mobileToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', function (event) {
+        if (!navigation.contains(event.target) && navMenu.classList.contains('active')) {
+          mobileToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+  }
+  // --- end nav injection and mobile menu ---
+
 
   // Navigation hover effects
   const navLinks = document.querySelectorAll('.nav-link');
-  
+
   navLinks.forEach(link => {
-    link.addEventListener('mouseenter', function() {
+    link.addEventListener('mouseenter', function () {
       this.style.transform = 'translateY(-2px)';
       this.style.transition = 'transform 0.3s ease';
     });
-    
-    link.addEventListener('mouseleave', function() {
+
+    link.addEventListener('mouseleave', function () {
       this.style.transform = 'translateY(0)';
     });
   });
 
   // Footer card hover effects
   const footerCards = document.querySelectorAll('.footer-card');
-  
+
   footerCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
+    card.addEventListener('mouseenter', function () {
       this.style.transform = 'translateY(-5px)';
       this.style.transition = 'transform 0.3s ease';
       this.style.boxShadow = '0px 12px 32px rgba(0, 0, 0, 0.4)';
     });
-    
-    card.addEventListener('mouseleave', function() {
+
+    card.addEventListener('mouseleave', function () {
       this.style.transform = 'translateY(0)';
       this.style.boxShadow = '0px 8px 24px rgba(0, 0, 0, 0.3)';
     });
-    
+
     // Click functionality for cards
-    card.addEventListener('click', function() {
+    card.addEventListener('click', function () {
       const cardTitle = this.querySelector('.card-title').textContent;
-      
+
       if (cardTitle.includes('Contáctanos')) {
         // Handle contact action
         console.log('Opening contact form...');
@@ -67,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Smooth scroll / click handling for navigation links
   navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function (e) {
       const href = this.getAttribute('href') || '';
       // only prevent default for placeholder links (e.g. "#")
       if (href === '#' || href.trim() === '') {
@@ -92,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add loading animation
   const images = document.querySelectorAll('img');
   images.forEach(img => {
-    img.addEventListener('load', function() {
+    img.addEventListener('load', function () {
       this.style.opacity = '0';
       this.style.transition = 'opacity 0.5s ease';
       setTimeout(() => {
@@ -107,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
     rootMargin: '0px 0px -50px 0px'
   };
 
-  const observer = new IntersectionObserver(function(entries) {
+  const observer = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.style.opacity = '1';
@@ -127,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Add click handlers for valor cards
   valorCards.forEach(card => {
-    card.addEventListener('click', function() {
+    card.addEventListener('click', function () {
       const title = this.querySelector('.valor-text h3');
       if (title) {
         console.log(`Clicked on: ${title.textContent}`);
