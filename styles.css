@@ -771,6 +771,18 @@ ul {
   background: #4caf50;
 }
 
+.purple {
+  color: #6a35c8;
+}
+
+.green {
+  color: #4caf50;
+}
+
+.orange {
+  color: #d8702c;
+}
+
 /* POSICIONES */
 .left {
   left: 4%;
