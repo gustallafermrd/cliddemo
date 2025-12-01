@@ -27,7 +27,7 @@ body {
   max-width: 1920px;
   min-height: 100px;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   margin: 0 auto;
 }
 
@@ -63,7 +63,7 @@ body {
   max-width: 1920px;
   min-height: 100px;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   margin: 0 auto;
 }
 
