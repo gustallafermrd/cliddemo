@@ -66,6 +66,7 @@ body {
   position: relative;
   /* overflow: hidden; */
   margin: 0 auto;
+  border-bottom: 3px solid #d48232;
 }
 
 /* Navigation Styles */
