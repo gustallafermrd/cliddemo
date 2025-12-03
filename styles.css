@@ -29,6 +29,7 @@ body {
   position: relative;
   /* overflow: hidden; */
   margin: 0 auto;
+  border-bottom: 3px solid #d48232;
 }
 
 .header-background {
@@ -262,6 +263,7 @@ div#slider figure {
 .foco-section,
 .genesis-section {
   width: 100%;
+  height: 100vh;
   /* max-width: 1440px; */
   position: relative;
   padding: 40px 20px;
@@ -271,6 +273,7 @@ div#slider figure {
   align-items: center;
   gap: 25px;
   margin: 0 auto;
+  background: #fff3e9;
 }
 
 .laclid-section p,
