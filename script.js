@@ -8,11 +8,12 @@ document.addEventListener('DOMContentLoaded', function () {
     <li><a href="genesis.html" class="nav-link">Genesis</a></li>
     <li><a href="funciones.html" class="nav-link">Funciones</a></li>
     <li><a href="innovaula.html" class="nav-link">Innov@ula</a></li>
-    <li><a href="fundadoras.html" class="nav-link">Fundadoras</a></li>
+    
     <li><a href="eventos.html" class="nav-link">Eventos</a></li>
     <li><a href="#" class="nav-link">Contacto</a></li>
   `;
   // 6. <li><a href="objetivos.html" class="nav-link">Objetivos</a></li>
+  // 7. <li><a href="fundadoras.html" class="nav-link">Fundadoras</a></li>  
   // 8. <li><a href="retos.html" class="nav-link">Retos</a></li>
   const navMenuEl = document.querySelector('#nav-menu');
   if (navMenuEl) {
