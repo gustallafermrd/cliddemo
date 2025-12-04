@@ -3,19 +3,39 @@ document.addEventListener('DOMContentLoaded', function () {
   // --- nav menu moved from HTML into a template literal ---
   const navMenuTemplate = `
     <li><a href="index.html" class="nav-link">Inicio</a></li>
-    <li><a href="laclid.html" class="nav-link">La CLID</a></li>
+    <li><a href="laclid.html" class="nav-link">Definición</a></li>
     <li><a href="proposito.html" class="nav-link">Propósito</a></li>
     <li><a href="genesis.html" class="nav-link">Genesis</a></li>
     <li><a href="funciones.html" class="nav-link">Funciones</a></li>
     <li><a href="innovaula.html" class="nav-link">Innov@ula</a></li>
     <li><a href="fundadoras.html" class="nav-link">Fundadoras</a></li>
     <li><a href="eventos.html" class="nav-link">Eventos</a></li>
-    <li><a href="#" class="nav-link contact-link">Contacto</a></li>
+    <li><a href="#" class="nav-link">Contacto</a></li>
   `;
   // 6. <li><a href="objetivos.html" class="nav-link">Objetivos</a></li>
   // 8. <li><a href="retos.html" class="nav-link">Retos</a></li>
   const navMenuEl = document.querySelector('#nav-menu');
-  if (navMenuEl) navMenuEl.innerHTML = navMenuTemplate;
+  if (navMenuEl) {
+    navMenuEl.innerHTML = navMenuTemplate;
+
+    // Highlight active link based on current URL
+    const currentPath = window.location.pathname;
+    const pageName = currentPath.split('/').pop() || 'index.html';
+    
+    const links = navMenuEl.querySelectorAll('.nav-link');
+    links.forEach(link => {
+      const linkHref = link.getAttribute('href');
+      if (linkHref === pageName || (pageName === 'index.html' && linkHref === './') || (pageName === 'index.html' && linkHref === '/')) {
+        link.classList.add('active');
+      }
+      
+      // Update active state immediately on click
+      link.addEventListener('click', function() {
+        links.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  }
 
   // --- Mobile Menu Toggle ---
   const navigation = document.querySelector('.navigation');
@@ -125,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
           if (this.classList.contains('contact-link')) {
             this.style.color = '#FFFFFF';
           } else {
-            this.style.color = '#111827';
+            this.style.color = '#FFFFFF';
           }
         }, 200);
         return;
