@@ -1343,3 +1343,44 @@ ul {
     max-width: 100%;
   }
 }
+
+/* SERVICIOS BUTTON */
+.servicios-btn {
+  display: inline-block;
+  background-color: #255ba4;
+  color: #ffffff;
+  font-family: "Alexandria", sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.servicios-btn:hover {
+  background-color: #1a4480;
+  transform: translateY(-2px);
+}
+
+.servicios-btn-wrap {
+  text-align: center;
+  padding: 10px 20px 30px;
+}
+
+.servicios-section {
+  width: 100%;
+  position: relative;
+  padding: 60px 20px 40px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .servicios-section {
+    padding: 40px 15px 20px;
+  }
+}
