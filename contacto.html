@@ -1,48 +1,115 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CLID - Innovación</title>
+  <title>CLID - Contacto</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <div class="wrapper">
-    <!-- Header Section -->
-    <header class="header"> 
-      
-      <!-- Navigation -->
+    <header class="header-other">
       <nav class="navigation">
         <div class="logo">
-          <img src="/img/logo.png" alt="CLID Logo" class="logo-image">
+          <img src="img/logo.png" alt="CLID Logo" class="logo-image">
         </div>
-        <!-- nav items moved to script.js; placeholder kept for JS to inject -->
         <ul class="nav-menu" id="nav-menu"></ul>
       </nav>
     </header>
-  </div>
 
-  <!-- Footer Section -->
-  <footer class="footer">
+    <section class="contacto-section">
+      <div class="contacto-container">
+
+        <!-- Form Column -->
+        <div class="contacto-form-wrap">
+          <h2 class="contacto-heading">Contáctanos</h2>
+          <p class="contacto-subtext">Queremos saber más de tu proyecto</p>
+
+          <form class="contacto-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" placeholder="Tu nombre">
+              </div>
+              <div class="form-group">
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" placeholder="Tu apellido">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="correo@ejemplo.com">
+              </div>
+              <div class="form-group">
+                <label for="telefono">Nro. de Teléfono</label>
+                <input type="tel" id="telefono" placeholder="+58 000 000 0000">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cargo">Cargo</label>
+                <input type="text" id="cargo" placeholder="Tu cargo">
+              </div>
+              <div class="form-group">
+                <label for="empresa">Empresa</label>
+                <input type="text" id="empresa" placeholder="Nombre de tu empresa">
+              </div>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" rows="5" placeholder="Cuéntanos en qué podemos ayudarte..."></textarea>
+            </div>
+
+            <button type="submit" class="contacto-submit">Enviar Mensaje</button>
+          </form>
+        </div>
+
+        <!-- Info Column -->
+        <div class="contacto-info-wrap">
+          <div class="contacto-info-card">
+            <h3 class="contacto-info-title">Información de Contacto</h3>
+
+            <div class="contacto-info-item">
+              <div class="contacto-info-icon">&#x1F4CD;</div>
+              <div class="contacto-info-text">
+                <strong>Dirección</strong>
+                <p>Sector La Otra Banda. Núcleo Liria.<br>Edif. F. Planta baja.</p>
+              </div>
+            </div>
+
+            <div class="contacto-info-item">
+              <div class="contacto-info-icon">&#x2709;&#xFE0F;</div>
+              <div class="contacto-info-text">
+                <strong>Email</strong>
+                <p>clidinnovaula@gmail.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="footer">
       <div class="footer-background">
         <img src="https://static.codia.ai/image/2025-10-17/6G8EzNmOHE.png" alt="Footer Background" class="footer-bg-image">
       </div>
-      
       <div class="footer-container">
-      <!-- Mascota in Footer -->
         <div class="footer-mascota">
           <img src="https://static.codia.ai/image/2025-10-17/d5GeLLfhGB.png" alt="Mascota" class="mascota-footer-image">
         </div>
-
-        <!-- Footer Content -->
         <div class="footer-content">
           <h2 class="footer-title">Cuéntanos, en qué podemos ayúdarte</h2>
-          
           <div class="footer-cards">
-            <!-- Contact Card -->
             <div class="footer-card contact-card">
               <div class="card-icon">
                 <img src="https://static.codia.ai/image/2025-10-17/LA4Ys7Daso.png" alt="Contact Icon" class="icon-image">
@@ -53,8 +120,6 @@
                 <span class="arrow-text">→</span>
               </div>
             </div>
-
-            <!-- Video Call Card -->
             <div class="footer-card video-card">
               <div class="card-icon">
                 <img src="https://static.codia.ai/image/2025-10-17/OnyWG0yWkq.png" alt="Video Icon" class="icon-image">
@@ -67,10 +132,12 @@
             </div>
           </div>
         </div>
-
       </div>
     </footer>
 
+  </div>
+
   <script src="script.js"></script>
 </body>
+
 </html>

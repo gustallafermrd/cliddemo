@@ -5,13 +5,12 @@ document.addEventListener("DOMContentLoaded", function () {
     <li><a href="index.html" class="nav-link">Inicio</a></li>
     <li><a href="laclid.html" class="nav-link">Definición</a></li>
     <li><a href="proposito.html" class="nav-link">Propósito</a></li>
-    <li><a href="propuesta.html" class="nav-link">Propuesta de Valor</a></li>
+    <li><a href="servicios.html" class="nav-link">Nuestros Servicios</a></li>
     <li><a href="genesis.html" class="nav-link">Genesis</a></li>
     <li><a href="funciones.html" class="nav-link">Funciones</a></li>
     <li><a href="innovaula.html" class="nav-link">Innov@ula</a></li>
-    <li><a href="servicios.html" class="nav-link">Servicios</a></li>
     <li><a href="eventos.html" class="nav-link">Eventos</a></li>
-    <li><a href="#" class="nav-link">Contacto</a></li>
+    <li><a href="contacto.html" class="nav-link">Contacto</a></li>
   `;
 	// 6. <li><a href="objetivos.html" class="nav-link">Objetivos</a></li>
 	// 7. <li><a href="fundadoras.html" class="nav-link">Fundadoras</a></li>
