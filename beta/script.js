@@ -47,6 +47,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
   }
 
+  /* ---- HERO BG SLIDER ---- */
+  const heroBgSlides = document.querySelector('.hero-bg-slides');
+  if (heroBgSlides) {
+    const total = heroBgSlides.querySelectorAll('.hero-bg-slide').length;
+    let cur = 0;
+    setInterval(() => {
+      cur = (cur + 1) % total;
+      heroBgSlides.style.transform = `translateX(-${cur * 100}%)`;
+    }, 4500);
+  }
+
   /* ---- FOOTER INJECTION ---- */
   const footer = document.getElementById('site-footer');
   if (footer) {
