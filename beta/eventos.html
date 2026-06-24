@@ -3,45 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CLID - Eventos</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <title>Eventos — CLID</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav class="navigation">
-    <div class="logo"><img src="img/logo.png" alt="CLID Logo" class="logo-image"></div>
-    <ul class="nav-menu" id="nav-menu"></ul>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo"><img src="../img/logo.png" alt="CLID Logo"></a>
+    <ul class="nav-links" id="nav-links"></ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
   </nav>
 
-  <section class="page-hero">
-    <div class="container">
-      <h1 class="hero-title"><span>Eventos</span></h1>
-      <p class="section-subtitle centered">Próximamente — actividades, talleres y presentaciones de la CLID.</p>
+  <header class="page-header">
+    <span class="page-header-ghost">Eventos</span>
+    <span class="page-header-eyebrow">Lo que hemos hecho</span>
+    <h1>Eventos</h1>
+    <div class="page-header-line"></div>
+  </header>
+
+  <section class="section reveal">
+    <div class="events-grid stagger">
+
+      <!-- Evento 1 -->
+      <div class="event-card">
+        <div class="event-slider">
+          <div class="event-slides">
+            <div class="event-slide"><img src="../img/presentacion-clid/1.jpg" alt="Presentación CLID 1"></div>
+            <div class="event-slide"><img src="../img/presentacion-clid/2.jpg" alt="Presentación CLID 2"></div>
+            <div class="event-slide"><img src="../img/presentacion-clid/3.jpg" alt="Presentación CLID 3"></div>
+            <div class="event-slide"><img src="../img/presentacion-clid/4.jpg" alt="Presentación CLID 4"></div>
+            <div class="event-slide"><img src="../img/presentacion-clid/5.jpg" alt="Presentación CLID 5"></div>
+            <div class="event-slide"><video src="../img/presentacion-clid/vid-1.mp4" controls></video></div>
+            <div class="event-slide"><video src="../img/presentacion-clid/vid-2.mp4" controls></video></div>
+            <div class="event-slide"><video src="../img/presentacion-clid/vid-3.mp4" controls></video></div>
+          </div>
+          <button class="s-arrow prev" aria-label="Anterior">&#8249;</button>
+          <button class="s-arrow next" aria-label="Siguiente">&#8250;</button>
+        </div>
+        <div class="event-body">
+          <h3>Presentación de la CLID</h3>
+          <p>Acto oficial de presentación de la Cátedra Laboratorio de Innovación y Desarrollo ante la comunidad universitaria y los sectores productivos de la región.</p>
+        </div>
+      </div>
+
+      <!-- Evento 2 -->
+      <div class="event-card">
+        <div class="event-slider">
+          <div class="event-slides">
+            <div class="event-slide"><video src="../img/presentacion-cula/vid-1.mp4" controls></video></div>
+            <div class="event-slide"><video src="../img/presentacion-cula/vid-2.mp4" controls></video></div>
+          </div>
+          <button class="s-arrow prev" aria-label="Anterior">&#8249;</button>
+          <button class="s-arrow next" aria-label="Siguiente">&#8250;</button>
+        </div>
+        <div class="event-body">
+          <h3>Presentación en Consejo Universitario</h3>
+          <p>Aprobación y presentación oficial de la CLID ante el Consejo Universitario de la ULA, el 24 de febrero de 2024.</p>
+        </div>
+      </div>
+
+      <!-- Evento 3 (placeholder) -->
+      <div class="event-card">
+        <div class="event-slider">
+          <div class="event-slides">
+            <div class="event-slide"><img src="../img/neuronas.jpg" alt="Evento 3"></div>
+            <div class="event-slide"><img src="../img/foco.jpg" alt="Evento 3 foto 2"></div>
+          </div>
+          <button class="s-arrow prev" aria-label="Anterior">&#8249;</button>
+          <button class="s-arrow next" aria-label="Siguiente">&#8250;</button>
+        </div>
+        <div class="event-body">
+          <h3>Próximos eventos</h3>
+          <p>Mantente atento a nuestra agenda. Pronto anunciaremos nuevas actividades, talleres y colaboraciones abiertas a la comunidad.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
-    <div class="container">
-      <div class="cards-grid">
-        <div class="img-card"><img src="img/neuronas.jpg" alt="Evento 1"><div class="img-card-body"><h3>Presentación de la CLID</h3><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam et labore cum assumenda voluptatibus.</p></div></div>
-        <div class="img-card"><img src="img/foco.jpg" alt="Evento 2"><div class="img-card-body"><h3>Evento #2</h3><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam et labore cum assumenda voluptatibus.</p></div></div>
-        <div class="img-card"><img src="img/neuronas.jpg" alt="Evento 3"><div class="img-card-body"><h3>Evento #3</h3><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam et labore cum assumenda voluptatibus.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand"><img src="img/logo.png" alt="CLID" class="footer-logo"><p>Centro Local de Innovación y Desarrollo. Universidad de Los Andes. Núcleo Liria.</p></div>
-        <div><h4 class="footer-heading">Enlaces</h4><ul class="footer-links"><li><a href="index.html">Inicio</a></li><li><a href="laclid.html">Definición</a></li><li><a href="proposito.html">Propósito</a></li><li><a href="servicios.html">Servicios</a></li><li><a href="funciones.html">Funciones</a></li><li><a href="genesis.html">Génesis</a></li><li><a href="innovaula.html">Innov@ula</a></li></ul></div>
-        <div><h4 class="footer-heading">Contacto</h4><div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Sector La Otra Banda. Núcleo Liria. Edif. F. Planta baja.</span></div><div class="footer-contact-item"><i class="fas fa-envelope"></i><span>clidinnovaula@gmail.com</span></div></div>
-      </div>
-      <div class="footer-bottom"><p>&copy; 2024 CLID - Centro Local de Innovación y Desarrollo. Universidad de Los Andes.</p></div>
-    </div>
-  </footer>
+  <footer class="site-footer" id="site-footer"></footer>
   <script src="script.js"></script>
 </body>
 </html>

@@ -3,58 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CLID - Servicios</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <title>Servicios — CLID</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav class="navigation">
-    <div class="logo"><img src="img/logo.png" alt="CLID Logo" class="logo-image"></div>
-    <ul class="nav-menu" id="nav-menu"></ul>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo"><img src="../img/logo.png" alt="CLID Logo"></a>
+    <ul class="nav-links" id="nav-links"></ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
   </nav>
 
-  <section class="page-hero">
-    <div class="container">
-      <h1 class="hero-title">Nuestros <span>Servicios</span></h1>
-      <p class="section-subtitle centered">Soluciones diseñadas para impulsar la innovación en tu organización.</p>
-    </div>
-  </section>
+  <header class="page-header">
+    <span class="page-header-ghost">Servicios</span>
+    <span class="page-header-eyebrow">Lo que ofrecemos</span>
+    <h1>Nuestros<br>Servicios</h1>
+    <div class="page-header-line"></div>
+  </header>
 
-  <section class="section" style="padding-top:0">
-    <div class="container">
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-icon-wrap"><i class="fas fa-lightbulb"></i></div>
-          <h3 class="card-title">Consultoría en Innovación y Desarrollo</h3>
-          <p class="card-text">Diseño de estrategias disruptivas y transformación de procesos organizacionales. Ayudamos a empresas e instituciones a evolucionar hacia modelos más competitivos y vanguardistas. Hacemos más productivo el conocimiento.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon-wrap"><i class="fas fa-chalkboard-teacher"></i></div>
-          <h3 class="card-title">Capacitación In-Company</h3>
-          <p class="card-text">Programas de formación técnica y estratégica diseñados a medida para las necesidades de su equipo. Llevamos el conocimiento de la universidad directamente a las instalaciones de su organización.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon-wrap"><i class="fas fa-handshake"></i></div>
-          <h3 class="card-title">Articulación Productiva</h3>
-          <p class="card-text">Gestión de proyectos de co-producción entre la CLID y los sectores público y privado para el desarrollo de nuevos bienes, servicios y soluciones innovadoras.</p>
-        </div>
+  <section class="section reveal">
+    <div class="cards-grid stagger">
+      <div class="card-item">
+        <div class="card-icon">💡</div>
+        <h3>Consultoría en Innovación y Desarrollo</h3>
+        <p>Diseño de estrategias disruptivas y transformación de procesos organizacionales. Ayudamos a empresas e instituciones a evolucionar hacia modelos más competitivos y vanguardistas. Hacemos más productivo el conocimiento.</p>
+      </div>
+      <div class="card-item">
+        <div class="card-icon">🎓</div>
+        <h3>Capacitación In-Company</h3>
+        <p>Programas de formación técnica y estratégica diseñados a medida para las necesidades de su equipo. Llevamos el conocimiento de la universidad directamente a las instalaciones de su organización.</p>
+      </div>
+      <div class="card-item">
+        <div class="card-icon">🤝</div>
+        <h3>Articulación Productiva</h3>
+        <p>Gestión de proyectos de co-producción entre la CLID y los sectores público y privado para el desarrollo de nuevos bienes, servicios y soluciones innovadoras.</p>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand"><img src="img/logo.png" alt="CLID" class="footer-logo"><p>Centro Local de Innovación y Desarrollo. Universidad de Los Andes. Núcleo Liria.</p></div>
-        <div><h4 class="footer-heading">Enlaces</h4><ul class="footer-links"><li><a href="index.html">Inicio</a></li><li><a href="laclid.html">Definición</a></li><li><a href="proposito.html">Propósito</a></li><li><a href="funciones.html">Funciones</a></li><li><a href="genesis.html">Génesis</a></li><li><a href="innovaula.html">Innov@ula</a></li><li><a href="eventos.html">Eventos</a></li></ul></div>
-        <div><h4 class="footer-heading">Contacto</h4><div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Sector La Otra Banda. Núcleo Liria. Edif. F. Planta baja.</span></div><div class="footer-contact-item"><i class="fas fa-envelope"></i><span>clidinnovaula@gmail.com</span></div></div>
-      </div>
-      <div class="footer-bottom"><p>&copy; 2024 CLID - Centro Local de Innovación y Desarrollo. Universidad de Los Andes.</p></div>
-    </div>
-  </footer>
+  <section class="section section-alt reveal" style="text-align:center;">
+    <span class="section-eyebrow" style="display:block;">¿Interesado?</span>
+    <h2 class="section-title" style="margin:0 auto 32px;max-width:560px;">Cuéntanos sobre tu proyecto</h2>
+    <a href="contacto.html" class="btn btn-primary">Iniciar conversación →</a>
+  </section>
+
+  <footer class="site-footer" id="site-footer"></footer>
   <script src="script.js"></script>
 </body>
 </html>

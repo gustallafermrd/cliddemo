@@ -3,58 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CLID - Funciones</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <title>Funciones — CLID</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav class="navigation">
-    <div class="logo"><img src="img/logo.png" alt="CLID Logo" class="logo-image"></div>
-    <ul class="nav-menu" id="nav-menu"></ul>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo"><img src="../img/logo.png" alt="CLID Logo"></a>
+    <ul class="nav-links" id="nav-links"></ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
   </nav>
 
-  <section class="page-hero">
-    <div class="container">
-      <h1 class="hero-title">Nuestras <span>Funciones</span></h1>
-      <p class="section-subtitle centered">Actividades clave que impulsan la innovación y el desarrollo desde la universidad hacia el sector productivo.</p>
-    </div>
-  </section>
+  <header class="page-header">
+    <span class="page-header-ghost">Funciones</span>
+    <span class="page-header-eyebrow">Cómo trabajamos</span>
+    <h1>Nuestras<br>Funciones</h1>
+    <div class="page-header-line"></div>
+  </header>
 
-  <section class="section" style="padding-top:0">
-    <div class="container">
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-icon-wrap"><i class="fas fa-flask"></i></div>
-          <h3 class="card-title">Articulación &amp; Investigación</h3>
-          <p class="card-text">Realizamos básicamente actividades dirigidas a establecer contratos con los sectores público y privado para, conjuntamente, desarrollar soluciones innovadoras a sus problemas, o emprender investigaciones que beneficien a la sociedad en general.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon-wrap"><i class="fas fa-atom"></i></div>
-          <h3 class="card-title">Producción</h3>
-          <p class="card-text">Con los profesionales más experimentados de la ULA gestionamos las etapas para el desarrollo de:<br><br><strong>BIENES:</strong> prototipos, simulaciones, experimentos, ensayos.<br><strong>SERVICIOS:</strong> auditorías, proyectos, asesorías, consultoría, modelos de negocio.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon-wrap"><i class="fas fa-brain"></i></div>
-          <h3 class="card-title">Difusión y Enseñanza</h3>
-          <p class="card-text">Socializamos el conocimiento generado en la CLID a través del modelo de enseñanza-aprendizaje, basado en el aprender haciendo y la experimentación creativa y lo difundimos por medio de: conferencias, talleres, cursos, exposiciones, presentaciones, ferias, etc.</p>
-        </div>
+  <section class="section reveal">
+    <div class="cards-grid stagger">
+      <div class="card-item">
+        <div class="card-icon">🔬</div>
+        <h3>Articulación &amp; Investigación</h3>
+        <p>Realizamos actividades dirigidas a establecer contratos con los sectores público y privado para, conjuntamente, desarrollar soluciones innovadoras a sus problemas, o emprender investigaciones que beneficien a la sociedad en general.</p>
+      </div>
+      <div class="card-item">
+        <div class="card-icon">⚛️</div>
+        <h3>Producción</h3>
+        <ul>
+          <li>Con los profesionales más experimentados de la ULA gestionamos las etapas para el desarrollo de:</li>
+          <li><strong>BIENES:</strong> prototipos, simulaciones, experimentos, ensayos</li>
+          <li><strong>SERVICIOS:</strong> auditorías, proyectos, asesorías, consultoría, modelos de negocio</li>
+        </ul>
+      </div>
+      <div class="card-item">
+        <div class="card-icon">🧠</div>
+        <h3>Difusión y Enseñanza</h3>
+        <p>Socializamos el conocimiento generado en la CLID a través del modelo de enseñanza-aprendizaje, basado en el aprender haciendo y la experimentación creativa, difundido por medio de: conferencias, talleres, cursos, exposiciones, presentaciones, ferias y más.</p>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand"><img src="img/logo.png" alt="CLID" class="footer-logo"><p>Centro Local de Innovación y Desarrollo. Universidad de Los Andes. Núcleo Liria.</p></div>
-        <div><h4 class="footer-heading">Enlaces</h4><ul class="footer-links"><li><a href="index.html">Inicio</a></li><li><a href="laclid.html">Definición</a></li><li><a href="proposito.html">Propósito</a></li><li><a href="servicios.html">Servicios</a></li><li><a href="genesis.html">Génesis</a></li><li><a href="innovaula.html">Innov@ula</a></li><li><a href="eventos.html">Eventos</a></li></ul></div>
-        <div><h4 class="footer-heading">Contacto</h4><div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Sector La Otra Banda. Núcleo Liria. Edif. F. Planta baja.</span></div><div class="footer-contact-item"><i class="fas fa-envelope"></i><span>clidinnovaula@gmail.com</span></div></div>
-      </div>
-      <div class="footer-bottom"><p>&copy; 2024 CLID - Centro Local de Innovación y Desarrollo. Universidad de Los Andes.</p></div>
-    </div>
-  </footer>
+  <footer class="site-footer" id="site-footer"></footer>
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,137 +1,108 @@
-// CLID - Script principal
-document.addEventListener("DOMContentLoaded", function () {
+/* CLID Beta — script.js */
 
-  // --- NAV INJECTION ---
-  const navMenuTemplate = `
-    <li><a href="index.html" class="nav-link">Inicio</a></li>
-    <li><a href="laclid.html" class="nav-link">Definición</a></li>
-    <li><a href="proposito.html" class="nav-link">Propósito</a></li>
-    <li><a href="servicios.html" class="nav-link">Servicios</a></li>
-    <li><a href="genesis.html" class="nav-link">Génesis</a></li>
-    <li><a href="funciones.html" class="nav-link">Funciones</a></li>
-    <li><a href="innovaula.html" class="nav-link">Innov@ula</a></li>
-    <li><a href="eventos.html" class="nav-link">Eventos</a></li>
-    <li><a href="contacto.html" class="nav-link">Contacto</a></li>
-  `;
-  // <li><a href="fundadoras.html" class="nav-link">Fundadoras</a></li>
-  // <li><a href="objetivos.html" class="nav-link">Objetivos</a></li>
-  // <li><a href="retos.html" class="nav-link">Retos</a></li>
+document.addEventListener('DOMContentLoaded', () => {
 
-  const navMenuEl = document.querySelector("#nav-menu");
-  if (navMenuEl) {
-    navMenuEl.innerHTML = navMenuTemplate;
+  /* ---- NAV INJECTION ---- */
+  const navPages = [
+    { href: 'index.html',    label: 'Inicio' },
+    { href: 'laclid.html',   label: 'Definición' },
+    { href: 'proposito.html',label: 'Propósito' },
+    { href: 'servicios.html',label: 'Servicios' },
+    { href: 'genesis.html',  label: 'Génesis' },
+    { href: 'funciones.html',label: 'Funciones' },
+    { href: 'innovaula.html',label: 'Innov@ula' },
+    { href: 'eventos.html',  label: 'Eventos' },
+    { href: 'contacto.html', label: 'Contacto' },
+  ];
 
-    const currentPath = window.location.pathname;
-    const pageName = currentPath.split("/").pop() || "index.html";
+  const linksEl = document.getElementById('nav-links');
+  if (linksEl) {
+    const page = location.pathname.split('/').pop() || 'index.html';
+    linksEl.innerHTML = navPages.map(p =>
+      `<li><a href="${p.href}"${p.href === page ? ' class="active"' : ''}>${p.label}</a></li>`
+    ).join('');
+  }
 
-    const links = navMenuEl.querySelectorAll(".nav-link");
-    links.forEach(function (link) {
-      const linkHref = link.getAttribute("href");
-      if (
-        linkHref === pageName ||
-        (pageName === "index.html" && linkHref === "index.html") ||
-        (!pageName && linkHref === "index.html")
-      ) {
-        link.classList.add("active");
-      }
+  /* ---- NAV SCROLL EFFECT ---- */
+  const nav = document.querySelector('.nav');
+  if (nav) {
+    const tick = () => nav.classList.toggle('scrolled', window.scrollY > 20);
+    window.addEventListener('scroll', tick, { passive: true });
+    tick();
+  }
+
+  /* ---- MOBILE TOGGLE ---- */
+  const toggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  if (toggle && navLinks) {
+    toggle.addEventListener('click', () => {
+      const open = toggle.classList.toggle('open');
+      navLinks.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
     });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      toggle.classList.remove('open');
+      navLinks.classList.remove('open');
+      document.body.style.overflow = '';
+    }));
   }
 
-  // --- MOBILE MENU TOGGLE ---
-  const navigation = document.querySelector(".navigation");
-  if (navigation) {
-    const mobileToggle = document.createElement("button");
-    mobileToggle.className = "mobile-menu-toggle";
-    mobileToggle.setAttribute("aria-label", "Toggle menu");
-    mobileToggle.innerHTML = "<span></span><span></span><span></span>";
-    navigation.appendChild(mobileToggle);
-
-    const navMenu = document.querySelector(".nav-menu");
-    if (navMenu) {
-      function closeMenu() {
-        mobileToggle.classList.remove("active");
-        navMenu.classList.remove("active");
-        document.body.style.overflow = "";
-      }
-
-      mobileToggle.addEventListener("click", function () {
-        const isOpen = navMenu.classList.contains("active");
-        if (isOpen) {
-          closeMenu();
-        } else {
-          mobileToggle.classList.add("active");
-          navMenu.classList.add("active");
-          document.body.style.overflow = "hidden";
-        }
-      });
-
-      navMenu.querySelectorAll(".nav-link").forEach(function (link) {
-        link.addEventListener("click", closeMenu);
-      });
-
-      document.addEventListener("click", function (event) {
-        if (
-          navMenu.classList.contains("active") &&
-          !navigation.contains(event.target)
-        ) {
-          closeMenu();
-        }
-      });
-    }
+  /* ---- FOOTER INJECTION ---- */
+  const footer = document.getElementById('site-footer');
+  if (footer) {
+    footer.innerHTML = `
+      <div class="footer-top">
+        <div>
+          <span class="footer-logo-text">CLID</span>
+          <p class="footer-tagline">Centro Laboratorio de Innovación y Desarrollo. Unidad dinámica, multidisciplinaria e intercultural de la ULA — FACES.</p>
+        </div>
+        <div>
+          <span class="footer-cta-eyebrow">¿En qué podemos ayudarte?</span>
+          <div class="footer-cta-list">
+            <a href="contacto.html" class="footer-cta-link">
+              <span class="footer-cta-ico">✉</span>
+              <span class="footer-cta-text">
+                <strong>Contáctanos</strong>
+                <span>Queremos saber más de tu proyecto</span>
+              </span>
+              <span class="footer-cta-arr">→</span>
+            </a>
+            <a href="contacto.html" class="footer-cta-link">
+              <span class="footer-cta-ico">🎥</span>
+              <span class="footer-cta-text">
+                <strong>Reserva una videollamada</strong>
+                <span>Forma parte del puente entre el presente y el futuro</span>
+              </span>
+              <span class="footer-cta-arr">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2024 CLID. Todos los derechos reservados.</span>
+        <span class="footer-uni">Universidad de Los Andes — FACES, Núcleo Liria</span>
+      </div>
+    `;
   }
 
-  // --- STICKY NAV SCROLL EFFECT ---
-  window.addEventListener("scroll", function () {
-    if (navigation) {
-      if (window.scrollY > 10) {
-        navigation.classList.add("scrolled");
-      } else {
-        navigation.classList.remove("scrolled");
-      }
-    }
+  /* ---- SCROLL REVEAL ---- */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal, .stagger').forEach(el => io.observe(el));
+
+  /* ---- EVENT SLIDERS ---- */
+  document.querySelectorAll('.event-slider').forEach(slider => {
+    const slides = slider.querySelector('.event-slides');
+    const total = slider.querySelectorAll('.event-slide').length;
+    if (total < 2) { slider.querySelectorAll('.s-arrow').forEach(b => b.style.display = 'none'); return; }
+    let cur = 0;
+    const go = n => { cur = (n + total) % total; slides.style.transform = `translateX(-${cur * 100}%)`; };
+    slider.querySelector('.prev').addEventListener('click', () => go(cur - 1));
+    slider.querySelector('.next').addEventListener('click', () => go(cur + 1));
   });
 
-  // --- SCROLL REVEAL ANIMATIONS ---
-  const revealElements = document.querySelectorAll(
-    ".reveal, .card, .accordion-item, .bubble, .founder-card, .stat-item"
-  );
-
-  if ("IntersectionObserver" in window) {
-    const revealObserver = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
-    );
-
-    revealElements.forEach(function (el) {
-      el.classList.add("reveal");
-      revealObserver.observe(el);
-    });
-  }
-
-  // --- SLIDER AUTOPLAY ---
-  const slider = document.getElementById("slider");
-  if (slider) {
-    const figure = slider.querySelector("figure");
-    if (figure) {
-      figure.style.animationPlayState = "running";
-    }
-  }
-
-  // --- SMOOTH SCROLL FOR ANCHOR LINKS ---
-  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-    anchor.addEventListener("click", function (e) {
-      const target = document.querySelector(this.getAttribute("href"));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    });
-  });
 });

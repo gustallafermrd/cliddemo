@@ -3,133 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CLID - Centro Local de Innovación y Desarrollo</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <title>CLID — Centro Laboratorio de Innovación y Desarrollo</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav class="navigation">
-    <div class="logo">
-      <img src="img/logo.png" alt="CLID Logo" class="logo-image">
-    </div>
-    <ul class="nav-menu" id="nav-menu"></ul>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="../img/logo.png" alt="CLID Logo">
+    </a>
+    <ul class="nav-links" id="nav-links"></ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-  <section class="page-hero">
-    <div class="container">
-      <h1 class="hero-title">Impulsamos la <span>innovación</span> que transforma</h1>
-      <p class="section-subtitle centered">Un puente entre la universidad y el sector productivo para co-crear soluciones que generan impacto real en la sociedad.</p>
-      <div class="mt-4">
-        <a href="servicios.html" class="btn btn-primary">Conoce nuestros servicios</a>
-        <a href="contacto.html" class="btn btn-outline" style="margin-left:12px">Contáctanos</a>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grain"></div>
+    <div class="hero-content" style="position:relative;z-index:1;">
+      <span class="hero-eyebrow">Universidad de Los Andes · FACES · 2024</span>
+      <h1 class="hero-title">Centro<br><em>Laboratorio</em><br>de Innovación</h1>
+      <div class="hero-divider"></div>
+      <div class="hero-bottom">
+        <p class="hero-desc">Unidad dinámica, multidisciplinaria e intercultural que articula la universidad con el sector productivo para co-crear soluciones que transforman.</p>
+        <div class="hero-actions">
+          <a href="laclid.html" class="btn btn-primary">Conoce la CLID</a>
+          <a href="contacto.html" class="btn btn-outline">Contáctanos</a>
+        </div>
       </div>
     </div>
-    <div class="slider-wrap mt-5 container">
-      <div id="slider">
-        <figure>
-          <img src="img/slider/innovacion.png" alt="Innovación">
-          <img src="img/slider/co-creacion.png" alt="Co-Creación">
-          <img src="img/slider/enfoque.png" alt="Enfoque">
-          <img src="img/slider/futuro.png" alt="Futuro">
-        </figure>
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="hero-scroll-line"></div>
+      <span class="hero-scroll-label">Scroll</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section reveal">
+    <div class="about">
+      <div class="about-text">
+        <span class="section-eyebrow">Qué es la CLID</span>
+        <h2 class="section-title">Donde el conocimiento se convierte en realidad</h2>
+        <p>La CLID es una unidad dinámica, multidisciplinaria e intercultural de articulación entre la universidad y el sector productivo, orientada a la coproducción de bienes y servicios novedosos con alto grado de conocimiento.</p>
+        <p style="margin-top:16px;">Nuestro propósito: escalar el impacto económico, social, ético y organizacional a favor del bienestar de la ciudadanía venezolana y latinoamericana.</p>
+        <a href="laclid.html" class="btn btn-outline" style="margin-top:36px;">Ver más →</a>
+      </div>
+      <div class="about-img-wrap">
+        <img src="../img/neuronas.jpg" alt="CLID en acción">
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">¿Qué es la CLID?</h2>
-        <p class="section-subtitle">Una unidad dinámica, multidisciplinaria e intercultural de articulación entre la universidad y el sector productivo.</p>
-        <div class="section-divider centered"></div>
+  <!-- VALUES -->
+  <section class="section section-alt">
+    <span class="section-eyebrow reveal">Nuestros valores</span>
+    <h2 class="section-title reveal">Lo que nos define</h2>
+    <div class="values-grid stagger">
+      <div class="value-card">
+        <img src="../img/innovacion.png" alt="Innovación">
+        <div class="value-card-overlay"></div>
+        <div class="value-card-body">
+          <span class="value-num">01</span>
+          <h3>Innovación</h3>
+        </div>
       </div>
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-icon-wrap"><i class="fas fa-lightbulb"></i></div>
-          <h3 class="card-title">Innovación</h3>
-          <p class="card-text">Diseñamos estrategias disruptivas y transformamos procesos organizacionales para crear ventajas competitivas sostenibles.</p>
+      <div class="value-card">
+        <img src="../img/dinamismo.png" alt="Dinamismo">
+        <div class="value-card-overlay"></div>
+        <div class="value-card-body">
+          <span class="value-num">02</span>
+          <h3>Dinamismo</h3>
         </div>
-        <div class="card">
-          <div class="card-icon-wrap"><i class="fas fa-handshake"></i></div>
-          <h3 class="card-title">Articulación</h3>
-          <p class="card-text">Conectamos a la universidad con los sectores público y privado para desarrollar soluciones innovadoras conjuntamente.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon-wrap"><i class="fas fa-graduation-cap"></i></div>
-          <h3 class="card-title">Formación</h3>
-          <p class="card-text">Programas de capacitación diseñados a medida que llevan el conocimiento universitario a tu organización.</p>
+      </div>
+      <div class="value-card">
+        <img src="../img/colaboradora.png" alt="Colaboradora">
+        <div class="value-card-overlay"></div>
+        <div class="value-card-body">
+          <span class="value-num">03</span>
+          <h3>Colaboradora</h3>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
-    <div class="container">
-      <img src="img/clid.png" alt="CLID" style="width:100%; max-width:900px; display:block; margin:0 auto; border-radius:16px; box-shadow: 0 12px 40px rgba(0,0,0,0.08);">
+  <!-- SERVICES PREVIEW -->
+  <section class="section reveal">
+    <span class="section-eyebrow">Lo que hacemos</span>
+    <h2 class="section-title">Nuestros servicios</h2>
+    <div class="cards-grid stagger">
+      <div class="card-item">
+        <div class="card-icon">💡</div>
+        <h3>Consultoría en Innovación</h3>
+        <p>Diseño de estrategias disruptivas y transformación de procesos organizacionales hacia modelos más competitivos y vanguardistas.</p>
+      </div>
+      <div class="card-item">
+        <div class="card-icon">🎓</div>
+        <h3>Capacitación In-Company</h3>
+        <p>Programas de formación técnica y estratégica diseñados a medida. Llevamos el conocimiento universitario a su organización.</p>
+      </div>
+      <div class="card-item">
+        <div class="card-icon">🤝</div>
+        <h3>Articulación Productiva</h3>
+        <p>Gestión de proyectos de co-producción entre la CLID y los sectores público y privado para desarrollar soluciones innovadoras.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px;">
+      <a href="servicios.html" class="btn btn-outline">Ver todos los servicios →</a>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Nuestros Valores</h2>
-        <p class="section-subtitle">Principios que guían cada una de nuestras acciones.</p>
-        <div class="section-divider centered"></div>
-      </div>
-      <div class="valores-grid">
-        <div class="valor-card"><img src="img/catedra.png" alt="Cátedra"></div>
-        <div class="valor-card"><img src="img/innovacion.png" alt="Innovación"><div class="valor-text"><h3>Innovación</h3></div></div>
-        <div class="valor-card"><img src="img/dinamismo.png" alt="Dinamismo"><div class="valor-text"><h3>Dinamismo</h3></div></div>
-        <div class="valor-card"><img src="img/colaboradora.png" alt="Colaboradora"><div class="valor-text"><h3>Colaboradora</h3></div></div>
-      </div>
+  <!-- CTA BAND -->
+  <section class="section section-alt" style="text-align:center;">
+    <div class="reveal">
+      <span class="section-eyebrow" style="justify-content:center;display:block;">¿Listo para innovar?</span>
+      <h2 class="section-title" style="margin:0 auto 32px;max-width:600px;">Hagamos algo extraordinario juntos</h2>
+      <a href="contacto.html" class="btn btn-primary">Comienza aquí →</a>
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
-    <div class="container" style="text-align:center">
-      <img src="img/mascota.png" alt="Mascota CLID" style="max-width:400px; width:100%; display:block; margin:0 auto;">
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img src="img/logo.png" alt="CLID" class="footer-logo">
-          <p>Centro Local de Innovación y Desarrollo. Universidad de Los Andes. Núcleo Liria.</p>
-        </div>
-        <div>
-          <h4 class="footer-heading">Enlaces</h4>
-          <ul class="footer-links">
-            <li><a href="laclid.html">Definición</a></li>
-            <li><a href="proposito.html">Propósito</a></li>
-            <li><a href="servicios.html">Servicios</a></li>
-            <li><a href="funciones.html">Funciones</a></li>
-            <li><a href="genesis.html">Génesis</a></li>
-            <li><a href="innovaula.html">Innov@ula</a></li>
-            <li><a href="eventos.html">Eventos</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="footer-heading">Contacto</h4>
-          <div class="footer-contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>Sector La Otra Banda. Núcleo Liria. Edif. F. Planta baja.</span>
-          </div>
-          <div class="footer-contact-item">
-            <i class="fas fa-envelope"></i>
-            <span>clidinnovaula@gmail.com</span>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 CLID - Centro Local de Innovación y Desarrollo. Universidad de Los Andes.</p>
-      </div>
-    </div>
-  </footer>
+  <footer class="site-footer" id="site-footer"></footer>
 
   <script src="script.js"></script>
 </body>

@@ -3,57 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CLID - Innov@ula</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <title>Innov@ula — CLID</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav class="navigation">
-    <div class="logo"><img src="img/logo.png" alt="CLID Logo" class="logo-image"></div>
-    <ul class="nav-menu" id="nav-menu"></ul>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo"><img src="../img/logo.png" alt="CLID Logo"></a>
+    <ul class="nav-links" id="nav-links"></ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
   </nav>
 
-  <section class="page-hero">
-    <div class="container"><h1 class="hero-title">Innov<span>@</span>ula</h1><p class="section-subtitle centered">Nuestra sede física: un espacio diseñado para la creatividad y la colaboración.</p></div>
-  </section>
+  <header class="page-header">
+    <span class="page-header-ghost">Innov@ula</span>
+    <span class="page-header-eyebrow">Nuestra sede</span>
+    <h1>Innov@ula</h1>
+    <div class="page-header-line"></div>
+  </header>
 
-  <section class="section" style="padding-top:0">
-    <div class="container">
-      <p class="definition-block text-center mb-5">Innov@ula es el nombre dado a nuestra novedosa sede física aún en construcción, ubicada en la FACES-ULA, espacio amplio, conformado por tres áreas diferenciadas por sus colores y dedicadas a la <strong style="color:#255ba4">investigación</strong>, <strong style="color:#ca843d">innovación</strong> así como la <strong style="color:#438148">producción</strong>, con la finalidad de facilitar la socialización del saber, la interacción, el trabajo en equipo y el aprender haciendo.</p>
-      <div class="bubble-grid">
-        <div class="bubble">
-          <div class="bubble-icon"><i class="fas fa-search" style="color:#255ba4"></i></div>
-          <h3>Investigación</h3>
-          <p>Exploración. Interacción. Articulación. Actividades administrativas. Atención al público. Discusiones de proyectos.</p>
-        </div>
-        <div class="bubble">
-          <div class="bubble-icon"><i class="fas fa-bullhorn" style="color:#ca843d"></i></div>
-          <h3>Difusión</h3>
-          <p>Presentación y entrega de resultados de proyectos, actividades de difusión: elaboración de posters, entrevistas, charlas.</p>
-        </div>
-        <div class="bubble">
-          <div class="bubble-icon"><i class="fas fa-cogs" style="color:#438148"></i></div>
-          <h3>Producción</h3>
-          <p>Diseño, experimentación, creación y desarrollo. Diseño de prototipos, experimentación, ensayos, desarrollo de productos y servicios comercializables.</p>
-        </div>
+  <!-- INTRO -->
+  <section class="section reveal">
+    <div class="about">
+      <div class="about-text">
+        <span class="section-eyebrow">En construcción · FACES-ULA</span>
+        <h2 class="section-title">Un espacio diseñado para crear</h2>
+        <p style="color:var(--text-muted);font-size:1.0625rem;line-height:1.85;margin-top:20px;">
+          Innovaula es nuestra novedosa sede física ubicada en la FACES-ULA: un espacio amplio conformado por tres áreas diferenciadas por sus colores y dedicadas a la
+          <strong style="color:#a07ee8;">investigación</strong>,
+          la <strong style="color:#f08a50;">innovación</strong> y la
+          <strong style="color:#3db88a;">producción</strong>.
+        </p>
+        <p style="color:var(--text-muted);font-size:1.0625rem;line-height:1.85;margin-top:16px;">
+          Su finalidad: facilitar la socialización del saber, la interacción, el trabajo en equipo y el aprender haciendo.
+        </p>
       </div>
-      <div class="text-center mt-5"><img src="img/neuri.png" alt="Mascota Innov@ula" style="max-width:300px; width:100%"></div>
+      <div class="about-img-wrap">
+        <img src="../img/neuri.png" alt="Neuri — mascota CLID">
+      </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand"><img src="img/logo.png" alt="CLID" class="footer-logo"><p>Centro Local de Innovación y Desarrollo. Universidad de Los Andes. Núcleo Liria.</p></div>
-        <div><h4 class="footer-heading">Enlaces</h4><ul class="footer-links"><li><a href="index.html">Inicio</a></li><li><a href="laclid.html">Definición</a></li><li><a href="proposito.html">Propósito</a></li><li><a href="servicios.html">Servicios</a></li><li><a href="funciones.html">Funciones</a></li><li><a href="genesis.html">Génesis</a></li><li><a href="eventos.html">Eventos</a></li></ul></div>
-        <div><h4 class="footer-heading">Contacto</h4><div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Sector La Otra Banda. Núcleo Liria. Edif. F. Planta baja.</span></div><div class="footer-contact-item"><i class="fas fa-envelope"></i><span>clidinnovaula@gmail.com</span></div></div>
+  <!-- ZONES -->
+  <section class="section section-alt">
+    <span class="section-eyebrow reveal">Las tres zonas</span>
+    <h2 class="section-title reveal">Áreas de trabajo</h2>
+    <div class="zones-grid stagger">
+      <div class="zone-card z-purple">
+        <div class="zone-dot"></div>
+        <div class="zone-title">Investigación</div>
+        <p class="zone-desc">Exploración, interacción y articulación. Actividades administrativas, atención al público y discusiones de proyectos en un entorno colaborativo diseñado para el pensamiento profundo.</p>
       </div>
-      <div class="footer-bottom"><p>&copy; 2024 CLID - Centro Local de Innovación y Desarrollo. Universidad de Los Andes.</p></div>
+      <div class="zone-card z-orange">
+        <div class="zone-dot"></div>
+        <div class="zone-title">Innovación</div>
+        <p class="zone-desc">Diseño, experimentación, creación y desarrollo. Diseño de prototipos, experimentación, ensayos y desarrollo de productos y servicios comercializables.</p>
+      </div>
+      <div class="zone-card z-green">
+        <div class="zone-dot"></div>
+        <div class="zone-title">Producción</div>
+        <p class="zone-desc">Presentación y difusión. Entrega de resultados de proyectos, actividades de difusión como elaboración de posters, entrevistas y charlas para compartir el conocimiento.</p>
+      </div>
     </div>
-  </footer>
+  </section>
+
+  <footer class="site-footer" id="site-footer"></footer>
   <script src="script.js"></script>
 </body>
 </html>
