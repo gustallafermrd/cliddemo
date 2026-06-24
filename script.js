@@ -1,5 +1,42 @@
 // Interactive functionality for the homepage
 document.addEventListener("DOMContentLoaded", function () {
+	// --- Footer injection ---
+	const footerEl = document.getElementById("site-footer");
+	if (footerEl) {
+		footerEl.innerHTML = `
+      <div class="footer-background">
+        <img src="https://static.codia.ai/image/2025-10-17/6G8EzNmOHE.png" alt="Footer Background" class="footer-bg-image">
+      </div>
+      <div class="footer-container">
+        <div class="footer-mascota">
+          <img src="https://static.codia.ai/image/2025-10-17/d5GeLLfhGB.png" alt="Mascota" class="mascota-footer-image">
+        </div>
+        <div class="footer-content">
+          <h2 class="footer-title">Cuéntanos, en qué podemos ayúdarte</h2>
+          <div class="footer-cards">
+            <a href="contacto.html" class="footer-card contact-card">
+              <div class="card-icon">
+                <img src="https://static.codia.ai/image/2025-10-17/LA4Ys7Daso.png" alt="Contact Icon" class="icon-image">
+              </div>
+              <h3 class="card-title">Contáctanos</h3>
+              <p class="card-description">Queremos saber más de tu proyecto</p>
+              <div class="card-arrow"><span class="arrow-text">→</span></div>
+            </a>
+            <a href="contacto.html" class="footer-card video-card">
+              <div class="card-icon">
+                <img src="https://static.codia.ai/image/2025-10-17/OnyWG0yWkq.png" alt="Video Icon" class="icon-image">
+              </div>
+              <h3 class="card-title">Reserva una videollamada</h3>
+              <p class="card-description">Forma parte del puente entre el presente y el futuro</p>
+              <div class="card-arrow"><span class="arrow-text">→</span></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    `;
+	}
+	// --- end footer injection ---
+
 	// --- nav menu moved from HTML into a template literal ---
 	const navMenuTemplate = `
     <li><a href="index.html" class="nav-link">Inicio</a></li>
@@ -108,40 +145,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	});
 
-	// Footer card hover effects
-	const footerCards = document.querySelectorAll(".footer-card");
-
-	footerCards.forEach((card) => {
-		card.addEventListener("mouseenter", function () {
-			this.style.transform = "translateY(-5px)";
-			this.style.transition = "transform 0.3s ease";
-			this.style.boxShadow = "0px 12px 32px rgba(0, 0, 0, 0.4)";
-		});
-
-		card.addEventListener("mouseleave", function () {
-			this.style.transform = "translateY(0)";
-			this.style.boxShadow = "0px 8px 24px rgba(0, 0, 0, 0.3)";
-		});
-
-		// Click functionality for cards
-		card.addEventListener("click", function () {
-			const cardTitle = this.querySelector(".card-title").textContent;
-
-			if (cardTitle.includes("Contáctanos")) {
-				// Handle contact action
-				console.log("Opening contact form...");
-				// You can add actual contact form logic here
-				alert("Funcionalidad de contacto - Implementar formulario");
-			} else if (cardTitle.includes("videollamada")) {
-				// Handle video call booking
-				console.log("Opening video call booking...");
-				// You can add actual booking logic here
-				alert(
-					"Funcionalidad de videollamada - Implementar sistema de reservas",
-				);
-			}
-		});
-	});
 
 	// Smooth scroll / click handling for navigation links
 	navLinks.forEach((link) => {
@@ -216,6 +219,21 @@ document.addEventListener("DOMContentLoaded", function () {
 				}, 150);
 			}
 		});
+	});
+
+	// --- Sliders de eventos ---
+	document.querySelectorAll(".eventos .slider").forEach((slider) => {
+		const slides = slider.querySelector(".slides");
+		const total = slider.querySelectorAll(".slide").length;
+		let current = 0;
+
+		function goTo(index) {
+			current = (index + total) % total;
+			slides.style.transform = `translateX(-${current * 100}%)`;
+		}
+
+		slider.querySelector(".prev").addEventListener("click", () => goTo(current - 1));
+		slider.querySelector(".next").addEventListener("click", () => goTo(current + 1));
 	});
 
 	console.log("Homepage loaded successfully!");
