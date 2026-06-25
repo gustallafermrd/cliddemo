@@ -44,11 +44,11 @@ document.addEventListener("DOMContentLoaded", function () {
     <li><a href="proposito.html" class="nav-link">Propósito</a></li>
     <li><a href="servicios.html" class="nav-link">Nuestros Servicios</a></li>
     <li><a href="genesis.html" class="nav-link">Genesis</a></li>
-    <li><a href="funciones.html" class="nav-link">Funciones</a></li>
     <li><a href="innovaula.html" class="nav-link">Innov@ula</a></li>
     <li><a href="eventos.html" class="nav-link">Eventos</a></li>
     <li><a href="contacto.html" class="nav-link">Contacto</a></li>
   `;
+	// 5. <li><a href="funciones.html" class="nav-link">Funciones</a></li>
 	// 6. <li><a href="objetivos.html" class="nav-link">Objetivos</a></li>
 	// 7. <li><a href="fundadoras.html" class="nav-link">Fundadoras</a></li>
 	// 8. <li><a href="retos.html" class="nav-link">Retos</a></li>
@@ -221,20 +221,92 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	});
 
-	// --- Sliders de eventos ---
-	document.querySelectorAll(".eventos .slider").forEach((slider) => {
-		const slides = slider.querySelector(".slides");
-		const total = slider.querySelectorAll(".slide").length;
-		let current = 0;
+	// --- Timeline sliders + Lightbox ---
+	const lbOverlay = document.getElementById("lb-overlay");
 
-		function goTo(index) {
-			current = (index + total) % total;
-			slides.style.transform = `translateX(-${current * 100}%)`;
+	if (lbOverlay) {
+		const lbMedia   = lbOverlay.querySelector(".lb-media");
+		const lbPrev    = lbOverlay.querySelector(".lb-prev");
+		const lbNext    = lbOverlay.querySelector(".lb-next");
+		const lbClose   = lbOverlay.querySelector(".lb-close");
+		const lbCounter = lbOverlay.querySelector(".lb-counter");
+
+		let lbSlides  = [];
+		let lbCurrent = 0;
+
+		function lbRender() {
+			const slideEl = lbSlides[lbCurrent];
+			const src = slideEl.querySelector("img, video");
+			lbMedia.innerHTML = "";
+			if (src.tagName === "IMG") {
+				const img = document.createElement("img");
+				img.src = src.src;
+				lbMedia.appendChild(img);
+			} else {
+				const video = document.createElement("video");
+				video.src = src.src;
+				video.controls = true;
+				video.autoplay  = true;
+				lbMedia.appendChild(video);
+			}
+			lbCounter.textContent = `${lbCurrent + 1} / ${lbSlides.length}`;
 		}
 
-		slider.querySelector(".prev").addEventListener("click", () => goTo(current - 1));
-		slider.querySelector(".next").addEventListener("click", () => goTo(current + 1));
-	});
+		function lbShow(slides, index) {
+			lbSlides  = slides;
+			lbCurrent = index;
+			lbRender();
+			lbOverlay.classList.add("open");
+			document.body.style.overflow = "hidden";
+		}
+
+		function lbHide() {
+			lbOverlay.classList.remove("open");
+			document.body.style.overflow = "";
+			lbMedia.querySelectorAll("video").forEach(v => v.pause());
+		}
+
+		function lbGo(dir) {
+			lbMedia.querySelectorAll("video").forEach(v => v.pause());
+			lbCurrent = (lbCurrent + dir + lbSlides.length) % lbSlides.length;
+			lbRender();
+		}
+
+		lbClose.addEventListener("click", lbHide);
+		lbOverlay.addEventListener("click", e => { if (e.target === lbOverlay) lbHide(); });
+		lbPrev.addEventListener("click", e => { e.stopPropagation(); lbGo(-1); });
+		lbNext.addEventListener("click", e => { e.stopPropagation(); lbGo(1); });
+
+		document.addEventListener("keydown", e => {
+			if (!lbOverlay.classList.contains("open")) return;
+			if (e.key === "Escape")      lbHide();
+			if (e.key === "ArrowLeft")   lbGo(-1);
+			if (e.key === "ArrowRight")  lbGo(1);
+		});
+
+		// Bind each timeline slider
+		document.querySelectorAll(".tl-slider").forEach(slider => {
+			const slidesEl  = slider.querySelector(".tl-slides");
+			const slideEls  = Array.from(slider.querySelectorAll(".tl-slide"));
+			const total     = slideEls.length;
+			let current     = 0;
+
+			function goTo(index) {
+				current = (index + total) % total;
+				slidesEl.style.transform = `translateX(-${current * 100}%)`;
+			}
+
+			slider.querySelector(".tl-btn.prev").addEventListener("click", e => { e.stopPropagation(); goTo(current - 1); });
+			slider.querySelector(".tl-btn.next").addEventListener("click", e => { e.stopPropagation(); goTo(current + 1); });
+
+			const expandBtn = slider.querySelector(".tl-expand");
+			if (expandBtn) {
+				expandBtn.addEventListener("click", e => { e.stopPropagation(); lbShow(slideEls, current); });
+			}
+
+			slider.addEventListener("click", () => lbShow(slideEls, current));
+		});
+	}
 
 	console.log("Homepage loaded successfully!");
 });
