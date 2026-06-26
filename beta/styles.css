@@ -743,7 +743,7 @@ img { display: block; max-width: 100%; }
 }
 
 .founder-img {
-  width: 160px; height: 160px;
+  width: 200px; height: 200px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--gold);
