@@ -7,9 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     { href: 'index.html',    label: 'Inicio' },
     { href: 'laclid.html',   label: 'Definición' },
     { href: 'proposito.html',label: 'Propósito' },
-    { href: 'servicios.html',label: 'Servicios' },
+    { href: 'servicios.html',label: 'Nuestros Servicios' },
     { href: 'genesis.html',  label: 'Génesis' },
-    { href: 'funciones.html',label: 'Funciones' },
     { href: 'innovaula.html',label: 'Innov@ula' },
     { href: 'eventos.html',  label: 'Eventos' },
     { href: 'contacto.html', label: 'Contacto' },
@@ -105,15 +104,73 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.reveal, .stagger').forEach(el => io.observe(el));
 
-  /* ---- EVENT SLIDERS ---- */
-  document.querySelectorAll('.event-slider').forEach(slider => {
-    const slides = slider.querySelector('.event-slides');
-    const total = slider.querySelectorAll('.event-slide').length;
-    if (total < 2) { slider.querySelectorAll('.s-arrow').forEach(b => b.style.display = 'none'); return; }
-    let cur = 0;
-    const go = n => { cur = (n + total) % total; slides.style.transform = `translateX(-${cur * 100}%)`; };
-    slider.querySelector('.prev').addEventListener('click', () => go(cur - 1));
-    slider.querySelector('.next').addEventListener('click', () => go(cur + 1));
-  });
+  /* ---- TIMELINE SLIDERS + LIGHTBOX ---- */
+  const lbOverlay = document.getElementById('lb-overlay');
+  if (lbOverlay) {
+    const lbMedia   = lbOverlay.querySelector('.lb-media');
+    const lbPrev    = lbOverlay.querySelector('.lb-prev');
+    const lbNext    = lbOverlay.querySelector('.lb-next');
+    const lbClose   = lbOverlay.querySelector('.lb-close');
+    const lbCounter = lbOverlay.querySelector('.lb-counter');
+    let lbSlides = [], lbCurrent = 0;
+
+    function lbRender() {
+      const src = lbSlides[lbCurrent].querySelector('img, video');
+      lbMedia.innerHTML = '';
+      if (src.tagName === 'IMG') {
+        const img = document.createElement('img');
+        img.src = src.src;
+        lbMedia.appendChild(img);
+      } else {
+        const video = document.createElement('video');
+        video.src = src.src; video.controls = true; video.autoplay = true;
+        lbMedia.appendChild(video);
+      }
+      lbCounter.textContent = `${lbCurrent + 1} / ${lbSlides.length}`;
+    }
+
+    function lbShow(slides, index) {
+      lbSlides = slides; lbCurrent = index;
+      lbRender();
+      lbOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function lbHide() {
+      lbOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+      lbMedia.querySelectorAll('video').forEach(v => v.pause());
+    }
+
+    function lbGo(dir) {
+      lbMedia.querySelectorAll('video').forEach(v => v.pause());
+      lbCurrent = (lbCurrent + dir + lbSlides.length) % lbSlides.length;
+      lbRender();
+    }
+
+    lbClose.addEventListener('click', lbHide);
+    lbOverlay.addEventListener('click', e => { if (e.target === lbOverlay) lbHide(); });
+    lbPrev.addEventListener('click', e => { e.stopPropagation(); lbGo(-1); });
+    lbNext.addEventListener('click', e => { e.stopPropagation(); lbGo(1); });
+    document.addEventListener('keydown', e => {
+      if (!lbOverlay.classList.contains('open')) return;
+      if (e.key === 'Escape')     lbHide();
+      if (e.key === 'ArrowLeft')  lbGo(-1);
+      if (e.key === 'ArrowRight') lbGo(1);
+    });
+
+    document.querySelectorAll('.tl-slider').forEach(slider => {
+      const slidesEl = slider.querySelector('.tl-slides');
+      const slideEls = Array.from(slider.querySelectorAll('.tl-slide'));
+      const total = slideEls.length;
+      let cur = 0;
+      const go = n => { cur = (n + total) % total; slidesEl.style.transform = `translateX(-${cur * 100}%)`; };
+      slider.querySelector('.tl-btn.prev').addEventListener('click', e => { e.stopPropagation(); go(cur - 1); });
+      slider.querySelector('.tl-btn.next').addEventListener('click', e => { e.stopPropagation(); go(cur + 1); });
+      const expandBtn = slider.querySelector('.tl-expand');
+      if (expandBtn) expandBtn.addEventListener('click', e => { e.stopPropagation(); lbShow(slideEls, cur); });
+      slider.addEventListener('click', () => lbShow(slideEls, cur));
+    });
+  }
 
 });
