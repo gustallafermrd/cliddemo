@@ -612,7 +612,7 @@ ul {
 .pricing-block .features li {
 	position: relative;
 	display: block;
-	font-size: clamp(0.875rem, 2vw, 0.875rem);
+	font-size: clamp(0.95rem, 2vw, 0.95rem);
 	line-height: 30px;
 	color: #848484;
 	font-weight: 500;
@@ -625,7 +625,7 @@ ul {
 	position: absolute;
 	left: 0;
 	top: 50%;
-	font-size: 16px;
+	font-size: 18px;
 	color: #2bd40f;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
@@ -828,8 +828,9 @@ ul {
 
 /* Estilo general de las burbujas */
 .bubble {
-	width: clamp(150px, 25%, 300px);
-	padding: clamp(40px, 4vw, 88px);
+	width: clamp(200px, 30%, 380px);
+	aspect-ratio: 1 / 1;
+	padding: clamp(35px, 4vw, 70px);
 	border-radius: 50%;
 	color: #fff;
 	font-size: clamp(0.9rem, 2vw, 1.05rem);
@@ -839,6 +840,7 @@ ul {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	overflow: hidden;
 }
 
 /* COLORES */
@@ -1258,6 +1260,7 @@ ul {
 	.bubble {
 		font-size: 0.75rem;
 		padding: 30px;
+		aspect-ratio: 1 / 1;
 	}
 
 	.left::after,
@@ -1350,9 +1353,10 @@ ul {
 	.bubble {
 		position: relative;
 		width: 100%;
-		max-width: 250px;
+		max-width: 280px;
 		margin: 10px auto;
 		padding: 30px;
+		aspect-ratio: 1 / 1;
 	}
 
 	.left,
