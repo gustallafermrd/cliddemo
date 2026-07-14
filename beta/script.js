@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { href: 'genesis.html',  label: 'Génesis' },
     { href: 'innovaula.html',label: 'Innov@ula' },
     { href: 'eventos.html',  label: 'Eventos' },
+    { href: 'galeria.html',  label: 'Galería' },
     { href: 'contacto.html', label: 'Contacto' },
   ];
 
@@ -170,6 +171,70 @@ document.addEventListener('DOMContentLoaded', () => {
       const expandBtn = slider.querySelector('.tl-expand');
       if (expandBtn) expandBtn.addEventListener('click', e => { e.stopPropagation(); lbShow(slideEls, cur); });
       slider.addEventListener('click', () => lbShow(slideEls, cur));
+    });
+  }
+
+  /* ---- GALERIA LIGHTBOX ---- */
+  const galeriaGridBeta = document.getElementById('galeria-grid-beta');
+
+  if (galeriaGridBeta) {
+    const items   = Array.from(galeriaGridBeta.querySelectorAll('.galeria-card-img img'));
+    const slides  = items.map(img => {
+      const s = document.createElement('div');
+      s.classList.add('tl-slide');
+      const clone = document.createElement('img');
+      clone.src = img.src;
+      s.appendChild(clone);
+      return s;
+    });
+
+    const gLb = document.createElement('div');
+    gLb.className = 'lb-overlay';
+    gLb.innerHTML = `
+      <button class="lb-close" aria-label="Cerrar">×</button>
+      <div class="lb-inner">
+        <button class="lb-arrow lb-prev" aria-label="Anterior">&#8249;</button>
+        <div class="lb-media"></div>
+        <button class="lb-arrow lb-next" aria-label="Siguiente">&#8250;</button>
+        <div class="lb-counter"></div>
+      </div>
+    `;
+    document.body.appendChild(gLb);
+
+    const gMedia   = gLb.querySelector('.lb-media');
+    const gPrev    = gLb.querySelector('.lb-prev');
+    const gNext    = gLb.querySelector('.lb-next');
+    const gClose   = gLb.querySelector('.lb-close');
+    const gCounter = gLb.querySelector('.lb-counter');
+
+    let gCur = 0;
+
+    const gRender = () => {
+      gMedia.innerHTML = '';
+      const img = document.createElement('img');
+      img.src = slides[gCur].querySelector('img').src;
+      gMedia.appendChild(img);
+      gCounter.textContent = `${gCur + 1} / ${slides.length}`;
+    };
+
+    const gShow = (i) => { gCur = i; gRender(); gLb.classList.add('open'); document.body.style.overflow = 'hidden'; };
+    const gHide = ()   => { gLb.classList.remove('open'); document.body.style.overflow = ''; };
+    const gGo   = (d)  => { gCur = (gCur + d + slides.length) % slides.length; gRender(); };
+
+    gClose.addEventListener('click', gHide);
+    gLb.addEventListener('click', e => { if (e.target === gLb) gHide(); });
+    gPrev.addEventListener('click', e => { e.stopPropagation(); gGo(-1); });
+    gNext.addEventListener('click', e => { e.stopPropagation(); gGo(1); });
+
+    document.addEventListener('keydown', e => {
+      if (!gLb.classList.contains('open')) return;
+      if (e.key === 'Escape')     gHide();
+      if (e.key === 'ArrowLeft')  gGo(-1);
+      if (e.key === 'ArrowRight') gGo(1);
+    });
+
+    items.forEach((img, i) => {
+      img.closest('.galeria-card-beta').addEventListener('click', () => gShow(i));
     });
   }
 
