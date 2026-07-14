@@ -688,12 +688,13 @@ ul {
 }
 
 .container {
-	position: relative;
 	width: 100%;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	min-height: 900px;
+	gap: clamp(24px, 4vw, 48px);
+	padding: 60px 20px;
 }
 
 /* SEGUNDO ACORDEON */
@@ -815,17 +816,6 @@ ul {
 	transform: translate(-50%, -50%) scale(1);
 }
 
-/* Imagen central */
-.mascota {
-	width: auto;
-	max-width: 100%;
-	position: absolute;
-	top: 5%;
-	z-index: 10;
-	display: block;
-	margin: 0 auto;
-}
-
 /* Estilo general de las burbujas */
 .bubble {
 	width: clamp(200px, 30%, 380px);
@@ -835,7 +825,7 @@ ul {
 	color: #fff;
 	font-size: clamp(0.9rem, 2vw, 1.05rem);
 	line-height: 1.4;
-	position: absolute;
+	position: relative;
 	text-align: center;
 	display: flex;
 	justify-content: center;
@@ -866,63 +856,6 @@ ul {
 
 .orange {
 	color: #d8702c;
-}
-
-/* POSICIONES */
-.left {
-	left: 4%;
-	top: 10%;
-}
-
-.right {
-	right: 4%;
-	top: 10%;
-}
-
-.bottom {
-	left: 50%;
-	transform: translateX(-50%);
-	bottom: 5%;
-}
-
-/* SPEECH BUBBLE TAILS */
-.left::after {
-	content: "";
-	position: absolute;
-	right: -20px;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 0;
-	height: 0;
-	border-left: 20px solid #6a35c8;
-	border-top: 12px solid transparent;
-	border-bottom: 12px solid transparent;
-}
-
-.right::after {
-	content: "";
-	position: absolute;
-	left: -20px;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 0;
-	height: 0;
-	border-right: 20px solid #d8702c;
-	border-top: 12px solid transparent;
-	border-bottom: 12px solid transparent;
-}
-
-.bottom::after {
-	content: "";
-	position: absolute;
-	top: -22px;
-	left: 50%;
-	transform: translateX(-50%);
-	width: 0;
-	height: 0;
-	border-bottom: 22px solid #4caf50;
-	border-left: 14px solid transparent;
-	border-right: 14px solid transparent;
 }
 
 /* Mascota Section */
@@ -1262,12 +1195,6 @@ ul {
 		padding: 30px;
 		aspect-ratio: 1 / 1;
 	}
-
-	.left::after,
-	.right::after,
-	.bottom::after {
-		display: none;
-	}
 }
 
 /* Mobile Landscape and Small Tablets */
@@ -1346,7 +1273,6 @@ ul {
 	}
 
 	.container {
-		min-height: 400px;
 		padding: 20px 10px;
 	}
 
@@ -1357,17 +1283,6 @@ ul {
 		margin: 10px auto;
 		padding: 30px;
 		aspect-ratio: 1 / 1;
-	}
-
-	.left,
-	.right,
-	.bottom {
-		position: relative;
-		left: auto;
-		right: auto;
-		top: auto;
-		bottom: auto;
-		transform: none;
 	}
 }
 
