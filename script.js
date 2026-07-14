@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <li><a href="genesis.html" class="nav-link">Genesis</a></li>
     <li><a href="innovaula.html" class="nav-link">Innov@ula</a></li>
     <li><a href="eventos.html" class="nav-link">Eventos</a></li>
+    <li><a href="galeria.html" class="nav-link">Galería</a></li>
     <li><a href="contacto.html" class="nav-link">Contacto</a></li>
   `;
 	// 5. <li><a href="funciones.html" class="nav-link">Funciones</a></li>
@@ -305,6 +306,85 @@ document.addEventListener("DOMContentLoaded", function () {
 			}
 
 			slider.addEventListener("click", () => lbShow(slideEls, current));
+		});
+	}
+
+	// --- Galería lightbox ---
+	const galeriaGrid = document.getElementById("galeria-grid");
+
+	if (galeriaGrid) {
+		const items = Array.from(galeriaGrid.querySelectorAll(".galeria-item img"));
+		const galeriaSlides = items.map((img) => {
+			const slide = document.createElement("div");
+			slide.classList.add("tl-slide");
+			const clone = document.createElement("img");
+			clone.src = img.src;
+			slide.appendChild(clone);
+			return slide;
+		});
+
+		const galeriaLb = document.createElement("div");
+		galeriaLb.className = "lb-overlay";
+		galeriaLb.innerHTML = `
+			<button class="lb-close">&times;</button>
+			<div class="lb-inner">
+				<button class="lb-arrow lb-prev">&#8249;</button>
+				<div class="lb-media"></div>
+				<button class="lb-arrow lb-next">&#8250;</button>
+				<div class="lb-counter"></div>
+			</div>
+		`;
+		document.body.appendChild(galeriaLb);
+
+		const galeriaLbMedia   = galeriaLb.querySelector(".lb-media");
+		const galeriaLbPrev    = galeriaLb.querySelector(".lb-prev");
+		const galeriaLbNext    = galeriaLb.querySelector(".lb-next");
+		const galeriaLbClose   = galeriaLb.querySelector(".lb-close");
+		const galeriaLbCounter = galeriaLb.querySelector(".lb-counter");
+
+		let galeriaCurrent = 0;
+
+		function galeriaRender() {
+			const slide = galeriaSlides[galeriaCurrent];
+			const src = slide.querySelector("img");
+			galeriaLbMedia.innerHTML = "";
+			const img = document.createElement("img");
+			img.src = src.src;
+			galeriaLbMedia.appendChild(img);
+			galeriaLbCounter.textContent = `${galeriaCurrent + 1} / ${galeriaSlides.length}`;
+		}
+
+		function galeriaShow(index) {
+			galeriaCurrent = index;
+			galeriaRender();
+			galeriaLb.classList.add("open");
+			document.body.style.overflow = "hidden";
+		}
+
+		function galeriaHide() {
+			galeriaLb.classList.remove("open");
+			document.body.style.overflow = "";
+		}
+
+		function galeriaGo(dir) {
+			galeriaCurrent = (galeriaCurrent + dir + galeriaSlides.length) % galeriaSlides.length;
+			galeriaRender();
+		}
+
+		galeriaLbClose.addEventListener("click", galeriaHide);
+		galeriaLb.addEventListener("click", (e) => { if (e.target === galeriaLb) galeriaHide(); });
+		galeriaLbPrev.addEventListener("click", (e) => { e.stopPropagation(); galeriaGo(-1); });
+		galeriaLbNext.addEventListener("click", (e) => { e.stopPropagation(); galeriaGo(1); });
+
+		document.addEventListener("keydown", (e) => {
+			if (!galeriaLb.classList.contains("open")) return;
+			if (e.key === "Escape")     galeriaHide();
+			if (e.key === "ArrowLeft")  galeriaGo(-1);
+			if (e.key === "ArrowRight") galeriaGo(1);
+		});
+
+		items.forEach((img, i) => {
+			img.closest(".galeria-item").addEventListener("click", () => galeriaShow(i));
 		});
 	}
 
