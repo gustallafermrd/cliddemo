@@ -47,14 +47,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
   }
 
-  /* ---- HERO BG SLIDER ---- */
+  /* ---- HERO BG SLIDER (infinite loop) ---- */
   const heroBgSlides = document.querySelector('.hero-bg-slides');
   if (heroBgSlides) {
-    const total = heroBgSlides.querySelectorAll('.hero-bg-slide').length;
+    const realSlides = heroBgSlides.querySelectorAll('.hero-bg-slide');
+    const total = realSlides.length;
+    heroBgSlides.appendChild(realSlides[0].cloneNode(true));
+
     let cur = 0;
+
     setInterval(() => {
-      cur = (cur + 1) % total;
+      cur++;
+      heroBgSlides.style.transition = 'transform 1s cubic-bezier(0.25,0.46,0.45,0.94)';
       heroBgSlides.style.transform = `translateX(-${cur * 100}%)`;
+
+      if (cur === total) {
+        setTimeout(() => {
+          heroBgSlides.style.transition = 'none';
+          heroBgSlides.style.transform = 'translateX(0)';
+          cur = 0;
+        }, 1050);
+      }
     }, 4500);
   }
 
@@ -71,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="footer-cta-eyebrow">¿En qué podemos ayudarte?</span>
           <div class="footer-cta-list">
             <a href="contacto.html" class="footer-cta-link">
-              <span class="footer-cta-ico">✉</span>
+              <span class="footer-cta-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 4-10 8L2 4"/></svg></span>
               <span class="footer-cta-text">
                 <strong>Contáctanos</strong>
                 <span>Queremos saber más de tu proyecto</span>

@@ -919,6 +919,8 @@ img { display: block; max-width: 100%; }
 
 .tl-slide video { object-fit: contain; }
 
+.tl-event:nth-of-type(3) .tl-slide:first-child img { object-position: center 30%; }
+
 .tl-btn {
   position: absolute;
   top: 50%; transform: translateY(-50%);
@@ -1196,7 +1198,7 @@ img { display: block; max-width: 100%; }
    ================================================ */
 
 .site-footer {
-  background: var(--bg-2);
+  background: #e4ded6;
   border-top: 1px solid var(--border);
   padding: 80px var(--pad-x) 40px;
 }
@@ -1356,6 +1358,10 @@ img { display: block; max-width: 100%; }
 	display: block;
 	filter: saturate(0.85);
 	transition: transform 0.65s var(--ease), filter 0.65s var(--ease);
+}
+
+.galeria-card-beta:first-child .galeria-card-img img {
+  object-position: top;
 }
 
 .galeria-card-beta:hover .galeria-card-img img {
