@@ -824,7 +824,7 @@ ul {
 	padding: clamp(35px, 4vw, 70px);
 	border-radius: 50%;
 	color: #fff;
-	font-size: clamp(1.025rem, 2vw, 1.175rem);
+	font-size: clamp(1.045rem, 2vw, 1.195rem);
 	line-height: 1.4;
 	position: relative;
 	text-align: center;
