@@ -919,6 +919,8 @@ img { display: block; max-width: 100%; }
 
 .tl-slide video { object-fit: contain; }
 
+.tl-event:nth-of-type(2) .tl-slide img { object-position: center 20%; }
+
 .tl-event:nth-of-type(3) .tl-slide:first-child img { object-position: center 30%; }
 
 .tl-btn {
